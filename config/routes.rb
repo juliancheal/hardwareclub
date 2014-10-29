@@ -2,9 +2,18 @@ Rails.application.routes.draw do
   
   root :to => "episodes#index"
   
-  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
-   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }, skip: [:sessions]
+  
+  devise_scope :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+  
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup, skip: [:sessions]
    
-  resources :users
+   
+   
+  resources :users, :only => [:edit, :show]
   resources :episodes
 end
