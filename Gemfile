@@ -33,6 +33,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-github'
 
 gem 'friendly_id', '~> 5.0.0'
+gem 'acts-as-taggable-on', '~> 3.4.2'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
