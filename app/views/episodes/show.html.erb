@@ -25,5 +25,14 @@
   <%= @episode.seconds %>
 </p>
 
+<% if @episode.tags.any? %>
+  <p>
+    <strong>Tags:</strong>
+    <% @episode.tags.each do |tag| %>
+      <%= tag.name %> 
+    <% end %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_episode_path(@episode) %> |
 <%= link_to 'Back', episodes_path %>
