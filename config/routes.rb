@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  
   root "episodes#index"
+  get 'static_pages/about'
   
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }, skip: [:sessions]
   
@@ -11,9 +11,7 @@ Rails.application.routes.draw do
   end
   
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup, skip: [:sessions]
-   
-   
-   
+
   resources :users, :only => [:edit, :show]
   resources :episodes
 end
