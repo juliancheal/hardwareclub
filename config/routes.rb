@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root :to => "episodes#index"
+  root "episodes#index"
   
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }, skip: [:sessions]
   
