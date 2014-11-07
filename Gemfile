@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 gem 'quiet_assets', group: :development
 
 gem 'devise'
+gem 'pundit', '~> 0.3.0'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'

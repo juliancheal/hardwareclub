@@ -13,5 +13,11 @@ Rails.application.routes.draw do
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup, skip: [:sessions]
 
   resources :users, :only => [:edit, :show]
-  resources :episodes
+  resources :episodes, :only => [:index, :show]
+  
+  namespace :admin do
+    resources 'dashboard'
+    resources :episodes
+    resources :users
+  end
 end

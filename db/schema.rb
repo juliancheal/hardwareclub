@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106210420) do
+ActiveRecord::Schema.define(version: 20141107191954) do
 
   create_table "episodes", force: true do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20141106210420) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.boolean  "published"
   end
 
   create_table "friendly_id_slugs", force: true do |t|
@@ -47,6 +48,23 @@ ActiveRecord::Schema.define(version: 20141106210420) do
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
 
+  create_table "linkings", force: true do |t|
+    t.integer  "episode_id"
+    t.integer  "link_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "linkings", ["episode_id"], name: "index_linkings_on_episode_id"
+  add_index "linkings", ["link_id"], name: "index_linkings_on_link_id"
+
+  create_table "links", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -68,12 +86,12 @@ ActiveRecord::Schema.define(version: 20141106210420) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -86,6 +104,7 @@ ActiveRecord::Schema.define(version: 20141106210420) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "slug"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
