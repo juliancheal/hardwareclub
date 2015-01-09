@@ -1,37 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-7 buffer alt post">
+  <header>
+    <h1><%= @episode.name %></h1>
+    <ul class="list-inline text-uppercase">
+      <li><i class="glyphicon glyphicon-info-sign"></i> <%= @episode.tags.first %></li>
+      <li><i class="glyphicon glyphicon-calendar"></i> <%= @episode.published_at.strftime("%d-%m-%Y")%></li>
+      <li><i class="glyphicon glyphicon-time"></i> <%= @episode.seconds %></li>
+    </ul>
+  </header>
+  <article>
+    <p><%= @episode.description %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @episode.name %>
-</p>
+    <p>
+      <i class="glyphicon glyphicon-tags"></i> <strong class="text-uppercase">Tags:</strong>
+      <% @episode.tags.each do |tag| %>
+        <%= tag.name %> 
+      <% end %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @episode.description %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @episode.notes %>
-</p>
-
-<p>
-  <strong>Published at:</strong>
-  <%= @episode.published_at.strftime("%d-%m-%Y") %>
-</p>
-
-<p>
-  <strong>Seconds:</strong>
-  <%= @episode.seconds %>
-</p>
-
-<% if @episode.tags.any? %>
-  <p>
-    <strong>Tags:</strong>
-    <% @episode.tags.each do |tag| %>
-      <%= tag.name %> 
-    <% end %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', episodes_path, class: "btn btn-primary" %>
+    <div class="notes">
+      <i class="glyphicon glyphicon-link"></i> <strong class="text-uppercase">Links:</strong> <p></p>
+    </div>
+  </article>
+  <%= link_to 'All Episodes', episodes_path, class: "btn btn-primary" %>
+</div>
