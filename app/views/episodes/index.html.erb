@@ -1,6 +1,6 @@
 <h1>Listing episodes</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,7 +16,7 @@
         <td><%= episode.name %></td>
         <td><%= episode.description %></td>
         <td><%= episode.published_at.strftime("%d-%m-%Y") %></td>
-        <td><%= link_to 'Show', episode %></td>
+        <td><%= link_to 'Show', episode, class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>

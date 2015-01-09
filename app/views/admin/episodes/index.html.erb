@@ -1,6 +1,6 @@
 <h1>Listing episodes</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -22,9 +22,9 @@
         <td><%= episode.published_at %></td>
         <td><%= episode.seconds %></td>
         <td><%= episode.published %></td>
-        <td><%= link_to 'Show', episode %></td>
-        <td><%= link_to 'Edit', edit_admin_episode_path(episode) %></td>
-        <td><%= link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', episode, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_admin_episode_path(episode), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', episode, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Episode', new_admin_episode_path %>
+<%= link_to 'New Episode', new_admin_episode_path, class: "btn btn-primary" %>
