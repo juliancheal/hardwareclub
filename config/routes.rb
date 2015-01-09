@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  root "episodes#index"
-  get 'static_pages/about'
+  root "static_pages#home"
   
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }, skip: [:sessions]
   
