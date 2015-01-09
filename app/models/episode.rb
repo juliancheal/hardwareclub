@@ -11,4 +11,8 @@ class Episode < ActiveRecord::Base
   def self.published?
     self.published
   end
+  
+  def title
+    self.name
+  end
 end
