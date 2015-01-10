@@ -1,0 +1,26 @@
+# Site settings
+title: Hardware Club episode show notes
+email: hello@hardwareclub.io
+description: >
+  Shownotes for every Hardware Club episode.
+baseurl: "/shownotes" # the subpath of your site, e.g. /blog/
+url: "localhost:3000" # the base hostname & protocol for your site
+permalink: /:title 
+
+twitter_username: juliancheal
+github_username:  juliancheal
+
+defaults:
+  -
+    values:
+      layout: "post"
+
+sass:
+  sass_dir: _sass
+  style: :compressed
+destination: /Users/Jools/Documents/Projects/Robots/Hardwareclub.io/hardwareclub/public/shownotes
+# destination: /Users/Jools/Documents/Projects/Robots/Hardwareclub.io/hardwareclub/app/views/shownotes
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM

@@ -23,3 +23,8 @@
   </article>
   <%= link_to 'All Episodes', episodes_path, class: "btn btn-primary" %>
 </div>
+<div class="col-md-12">
+  <article>
+    <%= render "shownotes/#{@episode.friendly_id}/notes" %>
+  </article>
+</div>
