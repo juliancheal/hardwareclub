@@ -1,23 +1,28 @@
-<h1>All Episodes</h1>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Published</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="row">
+  <h1>All Episodes</h1>
+  <div class="col-md-10">
     <% @episodes.each do |episode| %>
-      <tr>
-        <td><%= episode.name %></td>
-        <td><%= episode.description %></td>
-        <td><%= episode.published_at.strftime("%d-%m-%Y") %></td>
-        <td><%= link_to 'Show', episode, class: "btn btn-primary" %></td>
-      </tr>
+      <div class="col-xs-6 col-md-3">
+        <%= link_to(image_tag("http://placehold.it/171x180"), episode) %>
+        <%= link_to episode.title, episode %>
+          <ul class="list-inline">
+            <% unless episode.tags.empty? %>
+              <li><i class="glyphicon glyphicon-info-sign"></i> <%= episode.tags.first %></li>
+            <% end %>
+            <li><i class="glyphicon glyphicon-calendar"></i> <%= episode.published_at.strftime("%d-%m-%Y")%></li>
+            <li><i class="glyphicon glyphicon-time"></i> <%= episode.to_time %></li>
+          </ul>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <div class="col-md-2">
+    <header>
+      Tags
+    </header>
+    <ul class="list-inline">
+    <% @tags.each do |tag| %>
+      <li><%= tag %></li>
+    <% end %>
+    <ul>
+  </div>
+</div>

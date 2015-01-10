@@ -8,6 +8,7 @@ class EpisodesController < ApplicationController
   # GET /episodes.json
   def index
     @episodes = Episode.all.published
+    @tags = ActsAsTaggableOn::Tag.all
   end
 
   # GET /episodes/1
