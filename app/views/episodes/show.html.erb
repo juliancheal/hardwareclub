@@ -4,7 +4,7 @@
     <ul class="list-inline text-uppercase">
       <li><i class="glyphicon glyphicon-info-sign"></i> <%= @episode.tags.first %></li>
       <li><i class="glyphicon glyphicon-calendar"></i> <%= @episode.published_at.strftime("%d-%m-%Y")%></li>
-      <li><i class="glyphicon glyphicon-time"></i> <%= @episode.seconds %></li>
+      <li><i class="glyphicon glyphicon-time"></i> <%= @episode.to_time %></li>
     </ul>
   </header>
   <article>
