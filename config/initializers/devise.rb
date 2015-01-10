@@ -7,7 +7,6 @@ Devise.setup do |config|
   # config.secret_key = '1e538103d9f91e2a80b9a69c72f387123fc1b81ba3b4af64f2f0d639a0129dbbc05f63be818c81c9cd454a1c9a44e81d6fac6b46231b587f05dde0a5bc861921'
   config.sign_out_via = :delete
   
-  config.sign_out_via = :get
   config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"], { :scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
   config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"], { :scope => 'r_fullprofile, r_emailaddress', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
   config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], scope: "user, public_repo"
