@@ -1,0 +1,34 @@
+<div class="video-js-box">
+	<video
+		id="<%=options[:id]%>"
+		class="video-js vjs-default-skin vjs-big-play-centered"
+		<%= "controls" if !!options[:controls] %>
+		preload="<%=options[:preload]%>"
+		width="<%=options[:width]%>"
+		height="<%=options[:height]%>"
+		poster="<%= options[:poster] %>"
+		data-setup="<%= options[:setup] %>"
+	>
+		<% if options[:sources] %>
+			<%- options[:sources].each do |type, source| %>
+				<source src="<%= source %>" type='video/<%= type %>' />
+			<%- end %>
+		<%- end %>
+
+		<% if options[:captions] %>
+			<%- options[:captions].each do |lang, caption| %>
+				<% if caption.is_a?(Hash) %>
+					<%- caption_src = caption[:src] %>
+					<%- caption_label = caption[:label] %>
+				<%- else %>
+					<%- caption_src = caption %>
+					<%# TODO: Add some function to change ISO country code to label %>
+					<%- caption_label = lang %>
+				<%- end %>
+				<track kind="captions" src="<%= caption_src %>" srclang="<%= lang %>" label="<%= caption_label %>"<%= ' default' if options[:default_caption_language].to_sym == lang.to_sym %>></track>
+			<%- end %>
+		<%- end %>
+
+		<p class="vjs-no-js"><%= yield %></p>
+	</video>
+</div>

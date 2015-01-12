@@ -11,6 +11,10 @@
   </header>
   <article>
     <p><%= @episode.description %></p>
+    
+    <div id="container">
+      <%= videojs sources: { mp4: "/assets/sample.mp4" }, width:"481", height:"271", controls: true, autobuffer: true %>
+    </div>
 
     <p>
       <i class="glyphicon glyphicon-tags"></i> <strong class="text-uppercase">Tags:</strong>
