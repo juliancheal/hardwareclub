@@ -6,6 +6,8 @@
 
 config/social_keys.yml
 
+public/assets/*
+
 # Ignore bundler config.
 /.bundle
 
