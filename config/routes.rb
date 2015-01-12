@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:edit, :show]
   resources :episodes, :only => [:index, :show]
+  resources :explores, :only => [:index], path: "explore"
   
   namespace :admin do
     resources 'dashboard'
