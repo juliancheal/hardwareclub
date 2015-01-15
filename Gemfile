@@ -34,7 +34,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 
-gem 'friendly_id', '~> 5.0.0'
+gem 'friendly_id', '~> 5.0.4'
 gem 'acts-as-taggable-on', '~> 3.4.2'
 gem 'jekyll', require: false
 
@@ -49,4 +49,3 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
