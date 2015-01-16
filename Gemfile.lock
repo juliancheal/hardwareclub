@@ -67,7 +67,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     fast-stemmer (1.0.2)
     ffi (1.9.6)
-    friendly_id (5.0.5)
+    friendly_id (5.1.0)
       activerecord (>= 4.0.0)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
@@ -247,7 +247,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   coffee-rails (~> 4.1.0)
   devise
-  friendly_id (~> 5.0.4)
+  friendly_id (~> 5.1.0)
   jbuilder (~> 2.0)
   jekyll
   jquery-rails

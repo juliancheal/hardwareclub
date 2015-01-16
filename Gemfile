@@ -34,7 +34,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 
-gem 'friendly_id', '~> 5.0.4'
+gem 'friendly_id', '~> 5.1.0'
 gem 'acts-as-taggable-on', '~> 3.4.2'
 gem 'jekyll', require: false
 
