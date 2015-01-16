@@ -1,8 +1,8 @@
 class EpisodesController < ApplicationController
-  # include Pundit
+  include Pundit
 
   before_action :set_episode, only: [:show]
-  # after_action :verify_authorized, except: :index
+  after_action :verify_authorized, except: :index
 
   # GET /episodes
   # GET /episodes.json
@@ -20,6 +20,7 @@ class EpisodesController < ApplicationController
 
   def feed
     @episodes = Episode.all.published
+    authorize @episode, :feed?
     respond_to do |format|
       format.rss { render :layout => false }
     end
