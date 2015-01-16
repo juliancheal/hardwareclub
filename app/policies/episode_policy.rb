@@ -13,7 +13,11 @@ class EpisodePolicy
   def show?
     episode.published? || is_in_control?
   end
-  
+
+  def feed?
+    episode.published?
+  end
+
   def edit?
     is_in_control?
   end
@@ -29,7 +33,7 @@ class EpisodePolicy
   def destroy?
     is_in_control?
   end
-  
+
   private
   def is_in_control?
     !!( @user && @user.admin? )

@@ -1,8 +1,8 @@
 class EpisodesController < ApplicationController
-  include Pundit
-  
+  # include Pundit
+
   before_action :set_episode, only: [:show]
-  after_action :verify_authorized, except: :index
+  # after_action :verify_authorized, except: :index
 
   # GET /episodes
   # GET /episodes.json
@@ -16,6 +16,13 @@ class EpisodesController < ApplicationController
   def show
     @episode = set_episode
     authorize @episode, :show?
+  end
+
+  def feed
+    @episodes = Episode.all.published
+    respond_to do |format|
+      format.rss { render :layout => false }
+    end
   end
 
   private
