@@ -11,7 +11,7 @@
   </header>
   <article>
     <p><%= @episode.description %></p>
-    
+
     <div id="container">
       <%= videojs sources: { mp4: "/assets/sample.mp4" }, width:"481", height:"271", controls: true, autobuffer: true %>
     </div>
@@ -19,9 +19,15 @@
     <p>
       <i class="glyphicon glyphicon-tags"></i> <strong class="text-uppercase">Tags:</strong>
       <% @episode.tags.each do |tag| %>
-        <%= tag.name %> 
+        <%= tag.name %>
       <% end %>
     </p>
+
+    <% if user_signed_in? %>
+      <p>
+        <%= link_to "Watch later", new_watchlater_path({watchlater: {episode_id: @episode.id, user_id: current_user.id}}), data: {remote: true} %>
+      </p>
+    <% end %>
 
     <div class="notes">
       <i class="glyphicon glyphicon-link"></i> <strong class="text-uppercase">Links:</strong> <p></p>

@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Watchlaters</h1>
+
+<table>
+  <thead>
+    <tr>
+      Added to Watch Later
+    </tr>
+    <tr>
+      Episode Title
+    </tr>
+    <tr>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @watchlaters.each do |watchlater| %>
+      <tr>
+        <td><%= time_ago_in_words(watchlater.created_at) %> ago</td>
+        <td><%= link_to watchlater.episode.title, watchlater.episode %></td>
+        <td><%= link_to 'Destroy', watchlater, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>

@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   resources :users, :only => [:edit, :show]
   resources :episodes, :only => [:index, :show]
   resources :explores, :only => [:index], path: "explore"
-
+  resources :watchlaters
+  
   get 'feed' => 'episodes#feed'
 
   namespace :admin do
