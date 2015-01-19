@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :interviews
+
   root "static_pages#home"
 
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }, skip: [:sessions]
