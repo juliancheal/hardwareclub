@@ -5,10 +5,10 @@ description: >
   Shownotes for every Hardware Club episode.
 baseurl: "/shownotes" # the subpath of your site, e.g. /blog/
 url: "localhost:3000" # the base hostname & protocol for your site
-permalink: /:title 
+permalink: /:title
 
-twitter_username: juliancheal
-github_username:  juliancheal
+twitter_username: hardwareio
+github_username:  hardwareio
 
 defaults:
   -
