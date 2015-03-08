@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117203030) do
+ActiveRecord::Schema.define(version: 20150122221347) do
 
   create_table "episodes", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 20150117203030) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
+  create_table "interviews", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "published_at"
+    t.integer  "seconds"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+  end
 
   create_table "linkings", force: :cascade do |t|
     t.integer  "episode_id"
