@@ -13,11 +13,12 @@ Rails.application.routes.draw do
 
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup, skip: [:sessions]
 
-  resources :users, :only => [:edit, :show]
-  resources :episodes, :only => [:index, :show]
-  resources :explores, :only => [:index], path: "explore"
+  resources :users, only: [:edit, :show]
+  resources :episodes, only: [:index, :show]
+  resources :explores, only: [:index], path: "explore"
+  resources :shownotes, only: [:index, :show]
   resources :watchlaters
-  
+
   get 'feed' => 'episodes#feed'
 
   namespace :admin do

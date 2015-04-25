@@ -1,0 +1,10 @@
+<div class="row">
+  <h1>Episode Shownotes</h1>
+  <div class="col-md-10">
+    <% @episodes.each do |episode| %>
+      <div class="col-xs-6 col-md-3">
+        <%= link_to episode.title, shownote_path(episode) %>
+      </div>
+    <% end %>
+  </div>
+</div>
