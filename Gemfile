@@ -36,7 +36,6 @@ gem 'omniauth-github'
 
 gem 'friendly_id', '~> 5.1.0'
 gem 'acts-as-taggable-on', '~> 3.5.0'
-gem 'jekyll', require: false
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.10'
